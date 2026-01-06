@@ -1,0 +1,123 @@
+<configuration>
+    <!-- Verschiedene Appender für Scenarien / Hooks, Steps, Pages, Widgets -->
+
+
+    <!-- HOOKS / SCENARIO -->
+
+    <appender name="CONSOLE_SCENARIO"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level SCENARIO %logger{0}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.avenqo.beqpp.glue.Hooks" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_SCENARIO"/>
+    </logger>
+
+    <!-- === STEPS === -->
+
+    <!-- Appender für Steps -->
+    <appender name="CONSOLE_STEPS"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40}.[%M] - %msg%n</pattern -->
+            <pattern>%d{HH:mm:ss.SSS} %-5level STEP %logger{0}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Packages (oder einzelne Classes), die den Appender nutzen -->
+
+    <logger name="com.avenqo.beqpp.glue" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_STEPS"/>
+    </logger>
+
+
+    <!-- === PAGES === -->
+
+    <!-- Appender für Pages -->
+    <appender name="CONSOLE_PAGES"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level PAGES %logger{10}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Packages (oder einzelne Classes), die den Page-Appender nutzen -->
+
+    <logger name="com.avenqo.cucumber.beapp.pages" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_PAGES"/>
+    </logger>
+
+    <!-- === ELEMENT / WIDGET === -->
+
+    <appender name="CONSOLE_ELEMENT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level WIDGET %logger{20}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- === CONFIG === -->
+
+    <appender name="CONSOLE_CONFIG"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level CONFIG %logger{20}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Packages (oder einzelne Classes), die den Config-Appender nutzen -->
+
+    <logger name="com.avenqo.cucumber.beapp.driver.appium" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_CONFIG"/>
+    </logger>
+
+    <logger name="com.avenqo.cucumber.beapp.driver" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_CONFIG"/>
+    </logger>
+
+
+    <!-- === UTIL === -->
+
+    <appender name="CONSOLE_UTIL"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level UTIL %logger{20}.[%M] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Packages (oder einzelne Classes), die den Utility-Appender nutzen -->
+    <logger name="com.avenqo.cucumber.beapp.util" level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_UTIL"/>
+    </logger>
+
+    <!-- STANDARD -->
+
+    <appender name="CONSOLE_STD"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder
+            by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level !!! NO LOGGER APPENDER ASSIGNED !!! %logger{40}.[%M] -
+                %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE_STD"/>
+    </root>
+</configuration>

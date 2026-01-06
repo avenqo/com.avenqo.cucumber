@@ -1,0 +1,3 @@
+Compatibility matrix
+
+https://github.com/appium/java-client?tab=readme-ov-file#compatibility-matrix

@@ -1,0 +1,86 @@
+<configuration>
+    <!-- ========== APPENDERS ========== -->
+    <!-- === FILE APPENDER (Rolling) === -->
+    <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/pizza-example.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- tägliches Logfile -->
+            <fileNamePattern>logs/pizza-example.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>14</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{40}.[%M] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- === CONSOLE APPENDER (allgemein) === -->
+    <appender name="CONSOLE_STD"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{30}.[%M] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- STEPS -->
+    <appender name="CONSOLE_STEPS"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %green(STEP %logger{0}.[%M]) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- PAGES -->
+    <appender name="CONSOLE_ELEMENTS"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %cyan(ELEMENT %logger{0}.[%M]) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- STEPS -->
+    <appender name="CONSOLE_PAGES"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %blue(PAGE %logger{0}.[%M]) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ========== LOGGERS ========== -->
+    <!-- STEPS -->
+    <logger name="com.avenqo.cucumber.examples.pizzasvc.steps"
+            level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_STEPS"/>
+        <appender-ref ref="FILE_ALL"/>
+    </logger>
+    <logger name="com.avenqo.cucumber.beapp.glue"
+            level="info"
+            additivity="false">
+        <appender-ref ref="CONSOLE_STEPS"/>
+        <appender-ref ref="FILE_ALL"/>
+    </logger>
+
+    <!-- Pages -->
+    <logger name="com.avenqo.cucumber.beapp.pages" level="info" additivity="false">
+        <appender-ref ref="CONSOLE_PAGES"/>
+        <appender-ref ref="FILE_ALL"/>
+    </logger>
+    <logger name="com.avenqo.cucumber.examples.pizzasvc.pages" level="info" additivity="false">
+        <appender-ref ref="CONSOLE_PAGES"/>
+        <appender-ref ref="FILE_ALL"/>
+    </logger>
+
+    <!-- Elements -->
+    <logger name="com.avenqo.cucumber.beapp.widget" level="info" additivity="false">
+        <appender-ref ref="CONSOLE_ELEMENTS"/>
+        <appender-ref ref="FILE_ALL"/>
+    </logger>
+
+    <!-- Root: falls irgendwas nicht explizit gemappt ist -->
+    <root level="info">
+        <appender-ref ref="CONSOLE_STD"/>
+        <appender-ref ref="FILE_ALL"/>
+    </root>
+</configuration>

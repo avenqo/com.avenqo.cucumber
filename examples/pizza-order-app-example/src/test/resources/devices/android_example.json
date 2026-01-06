@@ -1,0 +1,13 @@
+{
+  "phoneNumber": "+491743333333",
+  "appium": {
+    "appium:deviceName": "example android",
+    "appium:automationName": "UiAutomator2",
+    "appium:platformVersion": "14.0",
+    "platformName": "Android",
+    "appium:noReset": true,
+    "appium:udid": "C5200000000",
+    "appium:unlockType": "pin",
+    "appium:unlockKey": "1234"
+  }
+}

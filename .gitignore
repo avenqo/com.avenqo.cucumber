@@ -1,17 +1,54 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://maven.apache.org/wrapper/#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+###############################################################################
+# macOS
+###############################################################################
+.DS_Store
+**/.DS_Store
 
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
+###############################################################################
+# IntelliJ / IDEA
+###############################################################################
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+###############################################################################
+# Maven / Java build output
+###############################################################################
+target/
+**/target/
+
+###############################################################################
+# Test reports / logs
+###############################################################################
+logs/
+log/
+*.log
+**/*.log
+test-output/
+surefire-reports/
+failsafe-reports/
+
+###############################################################################
+# Mobile build artifacts (Flutter/iOS/Android)
+###############################################################################
+# iOS simulator/app bundles
+*.app
+*.app/**
+*.xcarchive
+*.ipa
+
+# Android artifacts
+*.apk
+*.aab
+
+# Appium / recordings / screenshots
+screenshots/
+videos/
+appium.log
+
+###############################################################################
+# Private
+###############################################################################
+**/*hko*.json

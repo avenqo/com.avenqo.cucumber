@@ -1,0 +1,13 @@
+
+# Aufruf
+mvn -Dcom.avenqo.beapp.device=android_emu clean test
+
+# Debug
+mvn -Dcom.avenqo.beapp.device=android_emu -Dmaven.surefire.debug -am clean test
+
+mvn -Dmaven.surefire.debug -am clean test
+
+# Aktuelle App ermitteln
+adb shell dumpsys window | grep -i "mCurrentFocus"
+
+adb shell cmd package resolve-activity -c android.intent.category.LAUNCHER com.avenqo.cucumber.exampleapp.italianfrisbee

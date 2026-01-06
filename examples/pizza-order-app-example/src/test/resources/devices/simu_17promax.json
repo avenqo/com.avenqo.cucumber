@@ -1,0 +1,12 @@
+{
+  "phoneNumber": "+491743333333",
+  "appium": {
+    "platformName": "iOS",
+    "appium:automationName": "XCUITest",
+    "appium:udid": "EF15A13D-6164-4494-8DC6-2C7926B41CBF",
+    "appium:deviceName": "iPhone 17 Pro Max",
+    "appium:noReset": false,
+    "appium:platformVersion": "26.1",
+    "appium:showXcodeLog": true
+  }
+}

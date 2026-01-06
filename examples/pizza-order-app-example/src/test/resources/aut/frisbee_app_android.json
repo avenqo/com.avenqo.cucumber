@@ -1,0 +1,4 @@
+{
+  "appium:appPackage": "com.avenqo.cucumber.exampleapp.italianfrisbee",
+  "appium:appActivity": "com.avenqo.italian_frisbee.MainActivity"
+}
